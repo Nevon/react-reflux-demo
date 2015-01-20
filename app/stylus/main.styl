@@ -1,0 +1,114 @@
+@import 'normalize'
+@import 'helper'
+
+/* variables */
+$lightgrey = #999
+$linkColor = #555
+$grey = #eee
+$black = #222
+$white = #f7f7f7
+$bg = #5eb388
+
+*
+  box-sizing border-box
+
+html
+button
+input
+select
+textarea 
+  color $black
+
+a
+a:visited
+  color $linkColor
+  text-decoration none
+
+a:hover
+  color lighten($linkColor,10%)
+  
+body
+  color $black
+  font-size 1em
+  line-height 1.5
+  background $bg
+
+.container
+  width 100%
+  padding 50px
+  margin 0 auto
+  transition border 400ms ease-out
+  
+  &.container--outer
+    max-width 960px
+    border: 10px solid $bg
+    background-image url(../images/pattern.png)
+    
+    &.hovering
+      border 10px solid black
+  
+  &.container--inner
+    background #fafafa
+    border: 15px solid $bg
+    
+    &.hovering
+      border 15px solid black
+
+.boxes
+.box
+  list-style none
+  margin 0
+  padding 0
+
+.box
+  border 5px solid transparent
+  float left
+  width 100%
+  cursor pointer
+
+  &:hover
+    border 5px solid black
+  
+  &.last
+    background #fcc100
+  
+  &.third
+    width 33.33%
+  
+  &.half
+    width 50%
+  
+  .title
+    margin 0
+
+.notification
+  position absolute
+  top 30px
+  right 30px
+  max-width 300px
+  width 100%
+  padding 10px 20px
+  background #fcfcfc
+  border 1px solid #ccc
+  box-shadow 0 5px 10px rgba(0,0,0,.15)
+  border-radius 5px
+  opacity 0
+  display none
+  
+  &.active
+    display block
+    animation fadeOut 5s linear forwards
+
+@keyframes fadeOut
+    0%
+      opacity 0
+    10%
+      opacity 1
+    90%
+      opacity 1
+      transform translateY(0px)
+    99%
+      opacity 0
+      transform translateY(-30px)
+    100%
+      opacity 0 
