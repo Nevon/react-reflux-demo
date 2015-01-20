@@ -46,7 +46,7 @@ module.exports = BoxList = React.createClass({
           <span className='remove' onClick={this.onRemoveHandler}>Remove</span>
         </div>
         <div className='content'>
-          <h3>Neighbors</h3>
+          <h3 className='title'>Neighbors</h3>
           <ul className='neighbors'>
             {neighbors}
           </ul>
