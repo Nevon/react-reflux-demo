@@ -35,8 +35,9 @@ module.exports = BoxList = React.createClass({
 
   render: function() {
     var neighbors = this.props.neighbors.map(function(neighbor) {
-      return <li className='neighbor'>{neighbor}</li>
-    });
+      var key = this.props.id + ' - ' + neighbor;
+      return <li className='neighbor' key={key}>{neighbor}</li>
+    }, this);
 
     return (
       <div onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
