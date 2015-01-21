@@ -30,6 +30,7 @@ var App = React.createClass({
   generateBackgroundColor: function(num) {
     var range = 75,
         start = 255 - range;
+
     // Logistic function to approach 0 as the number of boxes grows
     var colorValue = Math.round(start - (range * 1 / (1 + Math.pow(Math.E, 1 - num))));
 

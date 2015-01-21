@@ -1,13 +1,13 @@
 var React = require('react');
 var BoxList = require('../components/boxList.jsx');
-var Message = require('../components/message.jsx');
+var Notifications = require('../components/notifications.jsx');
 
 var Home = React.createClass({
 
   render: function() {
     return (
       <div>
-      	<Message />
+      	<Notifications />
         <BoxList />
       </div>
     );
