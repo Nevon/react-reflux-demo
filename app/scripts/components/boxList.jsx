@@ -6,7 +6,7 @@ var Cursor = require('../lib/cursor');
 
 module.exports = BoxList = React.createClass({
 
-  getInitialState: function(){
+  getInitialState: function() {
     return {
       boxes : [],
       loading : false,
@@ -19,18 +19,22 @@ module.exports = BoxList = React.createClass({
     BoxActions.loadBoxes();
   },
 
-  componentWillUnmount: function(){
+  componentWillUnmount: function() {
     this.unsubscribe();
   },
 
-  onStatusChange: function(state){
+  onStatusChange: function(state) {
     this.setState(state);
+  },
+
+  createBox: function() {
+    BoxActions.createBox(0);
   },
 
   render: function() {
     var bgColors = new Cursor(['', 'red', 'green', 'blue']);
     var columns = new Cursor(['third', 'third', 'third', 'half', 'half', 'full']);
-
+    var loading = this.state.loading ? <div>Loading...</div> : '';
     var boxes = this.state.boxes.map(function(box, boxIndex){
       var neighbors = [];
       var boxClasses = ['box'];
@@ -65,8 +69,9 @@ module.exports = BoxList = React.createClass({
       }
 
       return <li key={box} className={boxClasses.join(' ')}><Box id={box} neighbors={neighbors} index={boxIndex} /></li>;
-    }, this),
-    loading = this.state.loading ? <div>Loading...</div> : '';
+    }, this);
+
+    var message = (this.state.boxes.length === 0) ? <span className="empty-message" onClick={this.createBox}>Click to create a box</span> : null;
 
     return (
       <div>
@@ -74,6 +79,7 @@ module.exports = BoxList = React.createClass({
         <ul className='clearfix boxes'>
           {boxes}
         </ul>
+        {message}
       </div>
     );
   }

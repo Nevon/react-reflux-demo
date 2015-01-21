@@ -19,7 +19,6 @@ module.exports = Message = React.createClass({
   },
 
   onStatusChange: function(state){
-    console.log("message.jsx::onStatusChange");
     this.setState(state);
   },
 

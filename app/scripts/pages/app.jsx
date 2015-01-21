@@ -24,8 +24,6 @@ var App = React.createClass({
       state.innerBackground = this.generateBackgroundColor(state.boxes.length)
     }
 
-    console.log(state);
-
     this.setState(state);
   },
 
@@ -34,7 +32,6 @@ var App = React.createClass({
         start = 255 - range;
     // Logistic function to approach 255 as the number of boxes grows
     var colorValue = Math.round(start + (range * 1 / (1 + Math.pow(Math.E, 1 - num))));
-    console.log(colorValue);
 
     var componentToHex = function(c) {
         var hex = c.toString(16);
