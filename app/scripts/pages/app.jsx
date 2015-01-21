@@ -1,6 +1,7 @@
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 var BoxStore = require('../stores/boxStore');
+var Header = require('../components/header.jsx');
 
 var App = React.createClass({
   getInitialState: function(){
@@ -26,9 +27,12 @@ var App = React.createClass({
     innerClasses = ['container', 'container--inner', (this.state.hovering === true) ? 'hovering' : ''].join(' ');
     
     return (
-      <div className={outerClasses}>
-        <div className={innerClasses}>
-          <RouteHandler/>
+      <div>
+        <Header />
+        <div className={outerClasses}>
+          <div className={innerClasses}>
+            <RouteHandler/>
+          </div>
         </div>
       </div>
     );
