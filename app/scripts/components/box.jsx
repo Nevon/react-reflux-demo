@@ -43,7 +43,9 @@ module.exports = BoxList = React.createClass({
       <div onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
         <div className='header'>
           <h2 className='title'>{this.props.id}</h2>
-          <span className='remove' onClick={this.onRemoveHandler}>Remove</span>
+          <div className='remove' onClick={this.onRemoveHandler}>
+            <span className='icon'>X</span>
+          </div>
         </div>
         <div className='content'>
           <h3 className='title'>Neighbors</h3>

@@ -5,6 +5,7 @@ module.exports = Message = React.createClass({
 
   getInitialState: function(){
     return {
+      title: '',
       message: ''
     }
   },
@@ -30,7 +31,8 @@ module.exports = Message = React.createClass({
 
     return (
       <div className={classes}>
-        <p>{this.state.message}</p>
+        <h2 className='title'>{this.state.title}</h2>
+        <p className='message'>{this.state.message}</p>
       </div>
     );
   }

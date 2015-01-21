@@ -7,6 +7,10 @@ $linkColor = #555
 $grey = #eee
 $black = #222
 $white = #f7f7f7
+$red = #e51c23
+$green = #8bc34a
+$blue = #5677fc
+$orange = #ffc107
 $bg = #5eb388
 
 *
@@ -43,6 +47,7 @@ body
     max-width 960px
     border: 10px solid $bg
     background-image url(../images/pattern.png)
+    background-position 50%
     
     &.hovering
       border 10px solid black
@@ -67,13 +72,10 @@ body
   cursor pointer
   
   > div
-    background #f0f0f0
+    background $white
 
   &:hover
     border 5px solid black
-  
-  &.last > div
-    background #f0f0f0
   
   &.third
     width 33.33%
@@ -81,29 +83,64 @@ body
   &.half
     width 50%
   
+  &.red .header
+    background $red
+  
+  &.green .header
+    background $green
+  
+  &.blue .header
+    background $blue
+  
+  &.last .header
+    background $orange
+  
+  &.red
+  &.blue
+  &.green
+  &.last
+    .header
+      color $white
+  
   .header
-    padding 5px
+  .content
+    padding 10px
+  
+  .header
     position: relative;
     
     .title
       margin 0
       text-transform uppercase
       font-size 1rem
+      font-weight 100
     
     .remove
       position absolute
-      right 10px
-      top 10px
+      right 0
+      top 0
+      display block
+      height 100%
       text-transform uppercase
-      font-size .6rem
+      font-size .9rem
+      transition all 300ms ease-out
+      font-family monospace
       
       &:hover
-        color red
+        color $linkColor
+        background rgba(255, 255, 255, .2)
+      
+      .icon
+        position relative
+        left 50%
+        top 50%
+        transform translate3d(-50%, -50%, 0)
+        display block
+        padding 0 15px
   
-  .content
-    .title
-      font-size .9rem
-      margin 0
+  .content .title
+    font-size .9rem
+    margin 0
 
 .notification
   position absolute
@@ -118,10 +155,20 @@ body
   border-radius 5px
   opacity 0
   display none
+  z-index 2
   
   &.active
     display block
     animation fadeOut 5s linear forwards
+  
+  .title
+    margin 5px 0
+    font-size 1.1rem
+  
+  .message
+    margin 0
+    font-size .9rem
+    
 
 @keyframes fadeOut
     0%
