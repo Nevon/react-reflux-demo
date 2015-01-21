@@ -6,7 +6,8 @@ var Header = require('../components/header.jsx');
 var App = React.createClass({
   getInitialState: function(){
     return {
-      hovering: false
+      hovering: false,
+      innerBackground: '#eaeaea'
     }
   },
 
@@ -19,18 +20,46 @@ var App = React.createClass({
   },
 
   onStatusChange: function(state){
+    if (typeof(state.boxes) !== 'undefined') {
+      state.innerBackground = this.generateBackgroundColor(state.boxes.length)
+    }
+
+    console.log(state);
+
     this.setState(state);
   },
 
+  generateBackgroundColor: function(num) {
+    var range = 100,
+        start = 255 - range;
+    // Logistic function to approach 255 as the number of boxes grows
+    var colorValue = Math.round(start + (range * 1 / (1 + Math.pow(Math.E, 1 - num))));
+    console.log(colorValue);
+
+    var componentToHex = function(c) {
+        var hex = c.toString(16);
+        return hex.length == 1 ? "0" + hex : hex;
+    }
+
+    var rgbToHex = function(r, g, b) {
+        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    }
+
+    return rgbToHex(colorValue, colorValue, colorValue);
+  },
+
   render: function () {
-    outerClasses = ['container', 'container--outer', (this.state.hovering === true) ? 'hovering' : ''].join(' ');
-    innerClasses = ['container', 'container--inner', (this.state.hovering === true) ? 'hovering' : ''].join(' ');
-    
+    var outerClasses = ['container', 'container--outer', (this.state.hovering === true) ? 'hovering' : ''].join(' ');
+    var innerClasses = ['container', 'container--inner', (this.state.hovering === true) ? 'hovering' : ''].join(' ');
+    var innerStyle = {
+      backgroundColor: this.state.innerBackground
+    };
+
     return (
       <div>
         <Header />
         <div className={outerClasses}>
-          <div className={innerClasses}>
+          <div className={innerClasses} style={innerStyle}>
             <RouteHandler/>
           </div>
         </div>
