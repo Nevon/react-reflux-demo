@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var BoxList = require('../components/boxList.jsx');
 var Notifications = require('../components/notifications.jsx');

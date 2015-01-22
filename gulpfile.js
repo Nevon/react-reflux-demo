@@ -1,5 +1,6 @@
+'use strict';
+
 var gulp = require('gulp');
-var path = require('path');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
 // set variable via $ gulp --type production
@@ -12,7 +13,7 @@ var app = 'app/';
 var dist = 'dist/';
 
 // https://github.com/ai/autoprefixer
-var autoprefixerBrowsers = [                 
+var autoprefixerBrowsers = [
   'ie >= 8',
   'ie_mob >= 10',
   'ff >= 30',
@@ -47,7 +48,7 @@ gulp.task('html', function() {
     .pipe($.connect.reload());
 });
 
-gulp.task('styles',function(cb) {
+gulp.task('styles',function() {
 
   // convert stylus to css
   return gulp.src(app + 'stylus/main.styl')
@@ -57,7 +58,7 @@ gulp.task('styles',function(cb) {
       // include 'normal' css into main.css
       'include css' : true
     }))
-    .pipe($.autoprefixer({browsers: autoprefixerBrowsers})) 
+    .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
     .pipe(gulp.dest(dist + 'css/'))
     .pipe($.size({ title : 'css' }))
     .pipe($.connect.reload());
@@ -76,7 +77,7 @@ gulp.task('serve', function() {
 });
 
 // copy images
-gulp.task('images', function(cb) {
+gulp.task('images', function() {
   return gulp.src(app + 'images/**/*.{png,jpg,jpeg,gif}')
     .pipe($.size({ title : 'images' }))
     .pipe(gulp.dest(dist + 'images/'));

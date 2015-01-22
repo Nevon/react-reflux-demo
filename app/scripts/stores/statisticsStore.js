@@ -1,8 +1,10 @@
+'use strict';
+
 var Reflux = require('reflux');
 var BoxActions = require('../actions/boxActions');
 var StatisticsActions = require('../actions/statisticsActions');
 
-module.exports = StatisticsStore = Reflux.createStore({
+module.exports = Reflux.createStore({
   listenables: [BoxActions, StatisticsActions],
 
   init : function(){
@@ -20,17 +22,17 @@ module.exports = StatisticsStore = Reflux.createStore({
     this.additions++;
 
     this.saveStatistics();
-    
+
     this.trigger({
       additions: this.additions
     });
   },
 
-  onRemoveBox: function(index) {
+  onRemoveBox: function() {
     this.deletions++;
 
     this.saveStatistics();
-    
+
     this.trigger({
       deletions: this.deletions
     });

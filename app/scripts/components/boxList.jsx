@@ -1,10 +1,12 @@
+'use strict';
+
 var React = require('react');
 var BoxStore = require('../stores/boxStore');
 var BoxActions = require('../actions/boxActions');
 var Box = require('./box.jsx');
 var Cursor = require('../lib/cursor');
 
-module.exports = BoxList = React.createClass({
+module.exports = React.createClass({
 
   getInitialState: function() {
     return {
@@ -41,7 +43,7 @@ module.exports = BoxList = React.createClass({
       var neighbors = [];
       var boxClasses = ['box'];
       var isLast = boxIndex + 1 === this.state.boxes.length;
-      
+
       if (boxIndex === 0) {
         boxClasses.push(columns.current());
         boxClasses.push(bgColors.current());
@@ -57,7 +59,7 @@ module.exports = BoxList = React.createClass({
       if (columns.getIndex() === 1) {
         // Box has possibly two neighbors
         neighbors.push(this.state.boxes[boxIndex - 1]);
-        
+
         if (!isLast) {
           // Has right neighbor
           neighbors.push(this.state.boxes[boxIndex + 1]);

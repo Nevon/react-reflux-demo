@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 var BoxStore = require('../stores/boxStore');
@@ -36,11 +38,11 @@ var App = React.createClass({
 
     var componentToHex = function(c) {
         var hex = c.toString(16);
-        return hex.length == 1 ? "0" + hex : hex;
+        return hex.length === 1 ? '0' + hex : hex;
     };
 
     var rgbToHex = function(r, g, b) {
-        return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+        return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
     };
 
     return rgbToHex(colorValue, colorValue, colorValue);

@@ -1,8 +1,10 @@
+'use strict';
+
 var Reflux = require('reflux');
 var BoxActions = require('../actions/boxActions');
 var uid = require('../lib/uid');
 
-module.exports = BoxStore = Reflux.createStore({
+module.exports = Reflux.createStore({
   listenables: [BoxActions],
 
   init : function(){
@@ -11,7 +13,7 @@ module.exports = BoxStore = Reflux.createStore({
 
 
   onLoadBoxes: function(){
-    this.trigger({ 
+    this.trigger({
       loading: true
     });
   },
@@ -19,14 +21,14 @@ module.exports = BoxStore = Reflux.createStore({
   onLoadBoxesSuccess: function(boxes){
     this.boxes = boxes;
 
-    this.trigger({ 
+    this.trigger({
       boxes : this.boxes,
       loading: false
     });
   },
 
   onLoadBoxesError: function(error){
-    this.trigger({ 
+    this.trigger({
       error : error,
       loading: false
     });
@@ -52,7 +54,7 @@ module.exports = BoxStore = Reflux.createStore({
     if (typeof(localStorage) !== 'undefined') {
       localStorage.setItem('boxes', JSON.stringify(this.boxes));
     }
-    
+
     this.trigger({
       boxes: this.boxes
     });

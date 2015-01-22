@@ -1,3 +1,5 @@
+'use strict';
+
 jest.dontMock('../uid');
 var uid = require('../uid');
 

@@ -1,9 +1,11 @@
+'use strict';
+
 var React = require('react');
 var BoxStore = require('../stores/boxStore');
 var StatisticsStore = require('../stores/statisticsStore');
 var StatisticsActions = require('../actions/statisticsActions');
 
-module.exports = BoxList = React.createClass({
+module.exports = React.createClass({
 
   getInitialState: function(){
     return {

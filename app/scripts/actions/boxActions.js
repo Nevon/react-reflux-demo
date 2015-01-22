@@ -1,3 +1,5 @@
+'use strict';
+
 var Reflux = require('reflux');
 
 var BoxActions = Reflux.createActions([
@@ -14,7 +16,7 @@ BoxActions.loadBoxes.preEmit = function(){
   var boxes = [];
 
   if (typeof(localStorage) !== 'undefined') {
-    storedBoxes = JSON.parse(localStorage.getItem('boxes'));
+    var storedBoxes = JSON.parse(localStorage.getItem('boxes'));
 
     if (storedBoxes) {
       boxes = storedBoxes;

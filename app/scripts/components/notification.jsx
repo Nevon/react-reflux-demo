@@ -1,7 +1,9 @@
+'use strict';
+
 var React = require('react');
 var NotificationActions = require('../actions/notificationActions');
 
-module.exports = Message = React.createClass({
+module.exports = React.createClass({
 
   propTypes: {
     title: React.PropTypes.string.isRequired,

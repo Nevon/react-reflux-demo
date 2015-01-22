@@ -1,9 +1,12 @@
+/*jshint -W079 */
+'use strict';
+
 var React = require('react/addons');
 var Notification = require('./notification.jsx');
 var NotificationsStore = require('../stores/notificationsStore');
 var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
-module.exports = Message = React.createClass({
+module.exports = React.createClass({
 
   getInitialState: function(){
     return {
@@ -29,8 +32,8 @@ module.exports = Message = React.createClass({
 
   render: function() {
     /* jshint ignore:start */
-    var notifications = this.state.notifications.reverse().map(function(notification) {
-      return <Notification uid={notification.uid} title={notification.title} message={notification.message} />;
+    var notifications = this.state.notifications.reverse().map(function(note) {
+      return <Notification uid={note.uid} title={note.title} message={note.message} />;
     });
 
     return (

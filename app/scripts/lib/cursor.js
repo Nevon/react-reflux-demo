@@ -1,4 +1,6 @@
-module.exports = Cursor = function(array) {
+'use strict';
+
+module.exports = function(array) {
 	var index = 0;
 
 	this.getIndex = function() {

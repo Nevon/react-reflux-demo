@@ -1,9 +1,11 @@
+'use strict';
+
 var Reflux = require('reflux');
 var BoxActions = require('../actions/boxActions');
 var NotificationActions = require('../actions/notificationActions');
 var friendlyMessages = require('../resources/friendlyMessages');
 
-module.exports = BoxStore = Reflux.createStore({
+module.exports = Reflux.createStore({
   listenables: [BoxActions, NotificationActions],
 
   init : function(){
@@ -12,7 +14,6 @@ module.exports = BoxStore = Reflux.createStore({
   },
 
   onAddNotification: function(title, message) {
-    var n = this.notifications;
     var uid = this.uid;
     var notification = {
       title: title,

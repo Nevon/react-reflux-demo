@@ -1,3 +1,5 @@
+'use strict';
+
 var Reflux = require('reflux');
 
 var StatisticsActions = Reflux.createActions([
@@ -10,7 +12,7 @@ StatisticsActions.loadStatistics.preEmit = function(){
   var statistics = {};
 
   if (typeof(localStorage) !== 'undefined') {
-    storedStatistics = JSON.parse(localStorage.getItem('statistics'));
+    var storedStatistics = JSON.parse(localStorage.getItem('statistics'));
 
     if (storedStatistics) {
       statistics = storedStatistics;

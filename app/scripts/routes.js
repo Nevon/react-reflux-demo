@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Router = require('react-router');
 var Route = Router.Route;
@@ -16,6 +18,6 @@ var routes = (
     <NotFoundRoute handler={NotFound}/>
   </Route>
 );
-/* jshint ignore:end */
 
 module.exports = routes;
+/* jshint ignore:end */

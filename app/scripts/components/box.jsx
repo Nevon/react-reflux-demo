@@ -1,7 +1,9 @@
+'use strict';
+
 var React = require('react');
 var BoxActions = require('../actions/boxActions');
 
-module.exports = BoxList = React.createClass({
+module.exports = React.createClass({
   propTypes: {
     id: React.PropTypes.string.isRequired,
     neighbors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
@@ -24,7 +26,7 @@ module.exports = BoxList = React.createClass({
     BoxActions.boxMouseLeave();
   },
 
-  onClickHandler: function(e) {
+  onClickHandler: function() {
     BoxActions.createBox(this.props.index);
   },
 

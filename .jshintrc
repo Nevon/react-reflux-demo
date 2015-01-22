@@ -1,0 +1,15 @@
+{
+	"node": true,
+	"bitwise": false,
+	"browser": true,
+	"esnext": true,
+	"globals": {
+		"module": true,
+		"require": true,
+		"it": true,
+		"expect": true,
+		"jasmine": true,
+		"describe": true,
+		"jest": true
+	}
+}
