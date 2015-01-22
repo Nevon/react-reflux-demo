@@ -3,8 +3,8 @@
 var Reflux = require('reflux');
 
 var NotificationActions = Reflux.createActions([
-  'addNotification',
-  'removeNotification'
+	'addNotification',
+	'removeNotification'
 ]);
 
 module.exports = NotificationActions;

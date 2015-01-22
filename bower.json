@@ -1,19 +1,19 @@
 {
-  "name": "boxes",
-  "version": "0.0.1",
-  "authors": [
-    "Tommy Brunn <tommy.brunn@gmail.com>"
-  ],
-  "description": "An app of boxes.",
-  "main": "index.html",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "app/bower_components",
-    "test",
-    "tests"
-  ],
-  "dependencies": {
-  }
+	"name": "boxes",
+	"version": "0.0.1",
+	"authors": [
+		"Tommy Brunn <tommy.brunn@gmail.com>"
+	],
+	"description": "An app of boxes.",
+	"main": "index.html",
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"app/bower_components",
+		"test",
+		"tests"
+	],
+	"dependencies": {
+	}
 }

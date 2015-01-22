@@ -5,71 +5,71 @@ var BoxActions = require('../actions/boxActions');
 var uid = require('../lib/uid');
 
 module.exports = Reflux.createStore({
-  listenables: [BoxActions],
+	listenables: [BoxActions],
 
-  init : function(){
-    this.boxes = [];
-  },
+	init : function(){
+		this.boxes = [];
+	},
 
 
-  onLoadBoxes: function(){
-    this.trigger({
-      loading: true
-    });
-  },
+	onLoadBoxes: function(){
+		this.trigger({
+			loading: true
+		});
+	},
 
-  onLoadBoxesSuccess: function(boxes){
-    this.boxes = boxes;
+	onLoadBoxesSuccess: function(boxes){
+		this.boxes = boxes;
 
-    this.trigger({
-      boxes : this.boxes,
-      loading: false
-    });
-  },
+		this.trigger({
+			boxes : this.boxes,
+			loading: false
+		});
+	},
 
-  onLoadBoxesError: function(error){
-    this.trigger({
-      error : error,
-      loading: false
-    });
-  },
+	onLoadBoxesError: function(error){
+		this.trigger({
+			error : error,
+			loading: false
+		});
+	},
 
-  onBoxMouseEnter: function() {
-    this.trigger({
-      hovering: true
-    });
-  },
+	onBoxMouseEnter: function() {
+		this.trigger({
+			hovering: true
+		});
+	},
 
-  onBoxMouseLeave: function() {
-    this.trigger({
-      hovering: false
-    });
-  },
+	onBoxMouseLeave: function() {
+		this.trigger({
+			hovering: false
+		});
+	},
 
-  onCreateBox: function(index) {
-    var box = uid();
+	onCreateBox: function(index) {
+		var box = uid();
 
-    this.boxes.splice(index+1, 0, box);
+		this.boxes.splice(index+1, 0, box);
 
-    if (typeof(localStorage) !== 'undefined') {
-      localStorage.setItem('boxes', JSON.stringify(this.boxes));
-    }
+		if (typeof(localStorage) !== 'undefined') {
+			localStorage.setItem('boxes', JSON.stringify(this.boxes));
+		}
 
-    this.trigger({
-      boxes: this.boxes
-    });
-  },
+		this.trigger({
+			boxes: this.boxes
+		});
+	},
 
-  onRemoveBox: function(index) {
-    this.boxes.splice(index, 1);
+	onRemoveBox: function(index) {
+		this.boxes.splice(index, 1);
 
-    if (typeof(localStorage) !== 'undefined') {
-      localStorage.setItem('boxes', JSON.stringify(this.boxes));
-    }
+		if (typeof(localStorage) !== 'undefined') {
+			localStorage.setItem('boxes', JSON.stringify(this.boxes));
+		}
 
-    this.trigger({
-      boxes: this.boxes
-    });
-  }
+		this.trigger({
+			boxes: this.boxes
+		});
+	}
 
 });

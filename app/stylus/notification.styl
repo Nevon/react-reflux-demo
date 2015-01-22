@@ -1,45 +1,45 @@
 @import 'animations'
 
 .notifications
-  position absolute
-  top 30px
-  right 30px
-  max-width 300px
-  width 100%
-  
+	position absolute
+	top 30px
+	right 30px
+	max-width 300px
+	width 100%
+
 .notifications li
-  list-style: none
-  margin 0 0 10px
-  padding 10px 20px
-  background #fcfcfc
-  border 1px solid #ccc
-  box-shadow 0 5px 10px rgba(0,0,0,.15)
-  border-radius 5px
-  z-index 2
-  cursor pointer
-  
-  .title
-    margin 5px 0
-    font-size 1.1rem
-  
-  .message
-    margin 0
-    font-size .9rem
+	list-style: none
+	margin 0 0 10px
+	padding 10px 20px
+	background #fcfcfc
+	border 1px solid #ccc
+	box-shadow 0 5px 10px rgba(0,0,0,.15)
+	border-radius 5px
+	z-index 2
+	cursor pointer
+
+	.title
+		margin 5px 0
+		font-size 1.1rem
+
+	.message
+		margin 0
+		font-size .9rem
 
 .notification-enter
-  opacity 0.01
-  transition all .3s ease-in
-  transform translate3d(0, -10px, 0)
+	opacity 0.01
+	transition all .3s ease-in
+	transform translate3d(0, -10px, 0)
 
 .notification-enter.notification-enter-active
-  opacity 1
-  transform translate3d(0, 0, 0)
-  
+	opacity 1
+	transform translate3d(0, 0, 0)
+
 .notification-leave
-  opacity 1
-  transform translate3d(0, 0, 0)
-  transition all .3s ease-in
+	opacity 1
+	transform translate3d(0, 0, 0)
+	transition all .3s ease-in
 
 .notification-leave.notification-leave-active
-  opacity 0.01
-  transform translate3d(0, -10px, 0)
+	opacity 0.01
+	transform translate3d(0, -10px, 0)

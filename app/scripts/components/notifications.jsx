@@ -8,42 +8,42 @@ var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 module.exports = React.createClass({
 
-  getInitialState: function(){
-    return {
-      notifications: []
-    };
-  },
+	getInitialState: function(){
+		return {
+			notifications: []
+		};
+	},
 
-  componentDidMount: function() {
-    this.unsubscribe = NotificationsStore.listen(this.onStatusChange);
-  },
+	componentDidMount: function() {
+		this.unsubscribe = NotificationsStore.listen(this.onStatusChange);
+	},
 
-  componentWillUnmount: function(){
-    this.unsubscribe();
-  },
+	componentWillUnmount: function(){
+		this.unsubscribe();
+	},
 
-  onStatusChange: function(state){
-    this.setState(state);
-  },
+	onStatusChange: function(state){
+		this.setState(state);
+	},
 
-  notificationClickHandler: function() {
+	notificationClickHandler: function() {
 
-  },
+	},
 
-  render: function() {
-    /* jshint ignore:start */
-    var notifications = this.state.notifications.reverse().map(function(note) {
-      return <Notification uid={note.uid} title={note.title} message={note.message} />;
-    });
+	render: function() {
+		/* jshint ignore:start */
+		var notifications = this.state.notifications.reverse().map(function(note) {
+			return <Notification uid={note.uid} title={note.title} message={note.message} />;
+		});
 
-    return (
-      <ol className='notifications'>
-        <ReactCSSTransitionGroup transitionName='notification'>
-          {notifications}
-        </ReactCSSTransitionGroup>
-      </ol>
-    );
-    /* jshint ignore:end */
-  }
+		return (
+			<ol className='notifications'>
+				<ReactCSSTransitionGroup transitionName='notification'>
+					{notifications}
+				</ReactCSSTransitionGroup>
+			</ol>
+		);
+		/* jshint ignore:end */
+	}
 
 });

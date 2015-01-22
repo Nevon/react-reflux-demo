@@ -16,142 +16,142 @@ $orange = #ffc107
 $bg = #5eb388
 
 *
-  box-sizing border-box
+	box-sizing border-box
 
 html
 button
 input
 select
-textarea 
-  color $black
+textarea
+	color $black
 
 a
 a:visited
-  color $linkColor
-  text-decoration none
+	color $linkColor
+	text-decoration none
 
 a:hover
-  color lighten($linkColor,10%)
-  
+	color lighten($linkColor,10%)
+
 body
-  color $black
-  font-size 1em
-  line-height 1.5
-  background $bg
+	color $black
+	font-size 1em
+	line-height 1.5
+	background $bg
 
 .container
-  width 100%
-  padding 50px
-  margin 0 auto
-  transition border 400ms ease-out
-  
-  &.container--outer
-    max-width 960px
-    border: 10px solid $bg
-    background-image url(../images/pattern.png)
-    background-position 50%
-    background-repeat no-repeat
-    background-size cover
-    
-    &.hovering
-      border 10px solid black
-  
-  &.container--inner
-    background #eaeaea
-    border: 15px solid $bg
-    
-    &.hovering
-      border 15px solid black
+	width 100%
+	padding 50px
+	margin 0 auto
+	transition border 400ms ease-out
+
+	&.container--outer
+		max-width 960px
+		border: 10px solid $bg
+		background-image url(../images/pattern.png)
+		background-position 50%
+		background-repeat no-repeat
+		background-size cover
+
+		&.hovering
+			border 10px solid black
+
+	&.container--inner
+		background #eaeaea
+		border: 15px solid $bg
+
+		&.hovering
+			border 15px solid black
 
 .boxes
 .box
-  list-style none
-  margin 0
-  padding 0
+	list-style none
+	margin 0
+	padding 0
 
 .box
-  border 5px solid transparent
-  float left
-  width 100%
-  cursor pointer
-  
-  > div
-    background $white
+	border 5px solid transparent
+	float left
+	width 100%
+	cursor pointer
 
-  &:hover
-    border 5px solid black
-  
-  &.third
-    width 33.33%
-  
-  &.half
-    width 50%
-  
-  &.red .header
-    background $red
-  
-  &.green .header
-    background $green
-  
-  &.blue .header
-    background $blue
-  
-  &.last .header
-    background $orange
-  
-  &.red
-  &.blue
-  &.green
-  &.last
-    .header
-      color $white
-  
-  .header
-  .content
-    padding 10px
-  
-  .header
-    position: relative;
-    
-    .title
-      margin 0
-      text-transform uppercase
-      font-size 1rem
-      font-weight 100
-    
-    .remove
-      position absolute
-      right 0
-      top 0
-      display block
-      height 100%
-      text-transform uppercase
-      font-size .9rem
-      transition all 300ms ease-out
-      font-family monospace
-      
-      &:hover
-        color $linkColor
-        background rgba(255, 255, 255, .2)
-      
-      .icon
-        position relative
-        left 50%
-        top 50%
-        transform translate3d(-50%, -50%, 0)
-        display block
-        padding 0 15px
-  
-  .content .title
-    font-size .9rem
-    margin 0
+	> div
+		background $white
+
+	&:hover
+		border 5px solid black
+
+	&.third
+		width 33.33%
+
+	&.half
+		width 50%
+
+	&.red .header
+		background $red
+
+	&.green .header
+		background $green
+
+	&.blue .header
+		background $blue
+
+	&.last .header
+		background $orange
+
+	&.red
+	&.blue
+	&.green
+	&.last
+		.header
+			color $white
+
+	.header
+	.content
+		padding 10px
+
+	.header
+		position: relative;
+
+		.title
+			margin 0
+			text-transform uppercase
+			font-size 1rem
+			font-weight 100
+
+		.remove
+			position absolute
+			right 0
+			top 0
+			display block
+			height 100%
+			text-transform uppercase
+			font-size .9rem
+			transition all 300ms ease-out
+			font-family monospace
+
+			&:hover
+				color $linkColor
+				background rgba(255, 255, 255, .2)
+
+			.icon
+				position relative
+				left 50%
+				top 50%
+				transform translate3d(-50%, -50%, 0)
+				display block
+				padding 0 15px
+
+	.content .title
+		font-size .9rem
+		margin 0
 
 .empty-message
-  text-align center
-  display block
-  cursor pointer
-  text-transform uppercase
-  letter-spacing 2px
-  font-weight bold
-  font-size .9rem
-  color $white
+	text-align center
+	display block
+	cursor pointer
+	text-transform uppercase
+	letter-spacing 2px
+	font-weight bold
+	font-size .9rem
+	color $white

@@ -12,11 +12,11 @@ var NotFound = require('./pages/notFound.jsx');
 
 /* jshint ignore:start */
 var routes = (
-  <Route name="app" path="/" handler={App}>
-    <Route name="home" handler={Home} />
-    <DefaultRoute handler={Home}/>
-    <NotFoundRoute handler={NotFound}/>
-  </Route>
+	<Route name="app" path="/" handler={App}>
+		<Route name="home" handler={Home} />
+		<DefaultRoute handler={Home}/>
+		<NotFoundRoute handler={NotFound}/>
+	</Route>
 );
 
 module.exports = routes;

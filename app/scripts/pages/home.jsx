@@ -6,16 +6,16 @@ var Notifications = require('../components/notifications.jsx');
 
 var Home = React.createClass({
 
-  render: function() {
-  	/* jshint ignore:start */
-    return (
-      <div>
-      	<Notifications />
-        <BoxList />
-      </div>
-    );
-    /* jshint ignore:end */
-  }
+	render: function() {
+		/* jshint ignore:start */
+		return (
+			<div>
+				<Notifications />
+				<BoxList />
+			</div>
+		);
+		/* jshint ignore:end */
+	}
 
 });
 
