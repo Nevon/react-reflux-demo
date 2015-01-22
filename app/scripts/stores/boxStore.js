@@ -59,7 +59,7 @@ module.exports = BoxStore = Reflux.createStore({
   },
 
   onRemoveBox: function(index) {
-    this.boxes.splice(index, 1)
+    this.boxes.splice(index, 1);
 
     if (typeof(localStorage) !== 'undefined') {
       localStorage.setItem('boxes', JSON.stringify(this.boxes));

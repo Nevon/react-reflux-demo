@@ -2,13 +2,18 @@ var React = require('react');
 var BoxActions = require('../actions/boxActions');
 
 module.exports = BoxList = React.createClass({
+  propTypes: {
+    id: React.PropTypes.string.isRequired,
+    neighbors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+    index: React.PropTypes.number.isRequired
+  },
 
   getDefaultProps: function(){
     return {
       id: '',
       neighbors: [],
       index: 0
-    }
+    };
   },
 
   mouseEnterHandler: function() {
@@ -36,9 +41,12 @@ module.exports = BoxList = React.createClass({
   render: function() {
     var neighbors = this.props.neighbors.map(function(neighbor) {
       var key = this.props.id + ' - ' + neighbor;
+      /* jshint ignore:start */
       return <li className='neighbor' key={key}>{neighbor}</li>
+      /* jshint ignore:end */
     }, this);
 
+    /* jshint ignore:start */
     return (
       <div onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
         <div className='header'>
@@ -55,6 +63,7 @@ module.exports = BoxList = React.createClass({
         </div>
       </div>
     );
+    /* jshint ignore:end */
   }
 
 });

@@ -11,7 +11,7 @@ module.exports = BoxList = React.createClass({
       boxes : [],
       loading : false,
       error : false
-    }
+    };
   },
 
   componentDidMount: function() {
@@ -34,7 +34,9 @@ module.exports = BoxList = React.createClass({
   render: function() {
     var bgColors = new Cursor(['', 'red', 'green', 'blue']);
     var columns = new Cursor(['third', 'third', 'third', 'half', 'half', 'full']);
+    /* jshint ignore:start */
     var loading = this.state.loading ? <div>Loading...</div> : '';
+    /* jshint ignore:end */
     var boxes = this.state.boxes.map(function(box, boxIndex){
       var neighbors = [];
       var boxClasses = ['box'];
@@ -68,9 +70,12 @@ module.exports = BoxList = React.createClass({
         neighbors.push(this.state.boxes[boxIndex - 1]);
       }
 
+      /* jshint ignore:start */
       return <li key={box} className={boxClasses.join(' ')}><Box id={box} neighbors={neighbors} index={boxIndex} /></li>;
+      /* jshint ignore:end */
     }, this);
 
+    /* jshint ignore:start */
     var message = (this.state.boxes.length === 0) ? <span className="empty-message" onClick={this.createBox}>Click to create a box</span> : null;
 
     return (
@@ -82,6 +87,7 @@ module.exports = BoxList = React.createClass({
         {message}
       </div>
     );
+    /* jshint ignore:end */
   }
 
 });

@@ -21,7 +21,7 @@ module.exports = BoxStore = Reflux.createStore({
       timeout: setTimeout(function() {
         NotificationActions.removeNotification(uid);
       }, 2500)
-    }
+    };
 
     this.notifications.push(notification);
 
@@ -43,7 +43,7 @@ module.exports = BoxStore = Reflux.createStore({
   },
 
   onRemoveBox: function(_, id) {
-    var title = 'Removed box: ' + id
+    var title = 'Removed box: ' + id;
     var message = friendlyMessages[Math.floor(Math.random() * friendlyMessages.length)];
 
     NotificationActions.addNotification(title, message);

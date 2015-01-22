@@ -10,7 +10,7 @@ module.exports = BoxList = React.createClass({
       additions: 0,
       deletions: 0,
       currentTotal: 0
-    }
+    };
   },
 
   componentDidMount: function() {
@@ -38,6 +38,7 @@ module.exports = BoxList = React.createClass({
   },
 
   render: function() {
+    /* jshint ignore:start */
     return (
       <header className='header-bar'>
         <h1 className='title'>Boxes</h1>
@@ -51,6 +52,7 @@ module.exports = BoxList = React.createClass({
         </dl>
       </header>
     );
+    /* jshint ignore:end */
   }
 
 });

@@ -24,6 +24,12 @@ var autoprefixerBrowsers = [
   'bb >= 10'
 ];
 
+gulp.task('lint', function() {
+  return gulp.src(['gulpfile.js', 'preprocessor.js', 'app/**/*.js', 'app/**/*.jsx'])
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('default'));
+});
+
 gulp.task('scripts', function() {
   return gulp.src(webpackConfig.entry)
     .pipe($.webpack(webpackConfig))

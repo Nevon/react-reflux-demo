@@ -8,7 +8,7 @@ var App = React.createClass({
     return {
       hovering: false,
       innerBackground: '#eaeaea'
-    }
+    };
   },
 
   componentDidMount: function() {
@@ -21,7 +21,7 @@ var App = React.createClass({
 
   onStatusChange: function(state){
     if (typeof(state.boxes) !== 'undefined') {
-      state.innerBackground = this.generateBackgroundColor(state.boxes.length)
+      state.innerBackground = this.generateBackgroundColor(state.boxes.length);
     }
 
     this.setState(state);
@@ -37,11 +37,11 @@ var App = React.createClass({
     var componentToHex = function(c) {
         var hex = c.toString(16);
         return hex.length == 1 ? "0" + hex : hex;
-    }
+    };
 
     var rgbToHex = function(r, g, b) {
         return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-    }
+    };
 
     return rgbToHex(colorValue, colorValue, colorValue);
   },
@@ -53,6 +53,7 @@ var App = React.createClass({
       backgroundColor: this.state.innerBackground
     };
 
+    /* jshint ignore:start */
     return (
       <div>
         <Header />
@@ -63,6 +64,7 @@ var App = React.createClass({
         </div>
       </div>
     );
+    /* jshint ignore:end */
   }
 });
 

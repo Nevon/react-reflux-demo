@@ -1,13 +1,14 @@
 var React = require('react/addons');
+var Notification = require('./notification.jsx');
 var NotificationsStore = require('../stores/notificationsStore');
-var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup
+var ReactCSSTransitionGroup = React.addons.CSSTransitionGroup;
 
 module.exports = Message = React.createClass({
 
   getInitialState: function(){
     return {
       notifications: []
-    }
+    };
   },
 
   componentDidMount: function() {
@@ -22,14 +23,14 @@ module.exports = Message = React.createClass({
     this.setState(state);
   },
 
+  notificationClickHandler: function() {
+
+  },
+
   render: function() {
+    /* jshint ignore:start */
     var notifications = this.state.notifications.reverse().map(function(notification) {
-      return (
-        <li key={notification.uid}>
-          <h2 className='title'>{notification.title}</h2>
-          <p className='message'>{notification.message}</p>
-        </li>
-      );
+      return <Notification uid={notification.uid} title={notification.title} message={notification.message} />;
     });
 
     return (
@@ -39,6 +40,7 @@ module.exports = Message = React.createClass({
         </ReactCSSTransitionGroup>
       </ol>
     );
+    /* jshint ignore:end */
   }
 
 });

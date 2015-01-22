@@ -46,7 +46,7 @@ module.exports = StatisticsStore = Reflux.createStore({
       return true;
     }
 
-    return false
+    return false;
   }
 
 });

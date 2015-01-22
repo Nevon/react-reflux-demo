@@ -8,6 +8,7 @@ var App = require('./pages/app.jsx');
 var Home = require('./pages/home.jsx');
 var NotFound = require('./pages/notFound.jsx');
 
+/* jshint ignore:start */
 var routes = (
   <Route name="app" path="/" handler={App}>
     <Route name="home" handler={Home} />
@@ -15,5 +16,6 @@ var routes = (
     <NotFoundRoute handler={NotFound}/>
   </Route>
 );
+/* jshint ignore:end */
 
 module.exports = routes;
