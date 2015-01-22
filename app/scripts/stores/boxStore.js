@@ -1,6 +1,6 @@
 var Reflux = require('reflux');
 var BoxActions = require('../actions/boxActions');
-var uuid = require('uuid');
+var uid = require('../lib/uid');
 
 module.exports = BoxStore = Reflux.createStore({
   listenables: [BoxActions],
@@ -45,7 +45,7 @@ module.exports = BoxStore = Reflux.createStore({
   },
 
   onCreateBox: function(index) {
-    var box = this.generateId();
+    var box = uid();
 
     this.boxes.splice(index+1, 0, box);
 
@@ -68,10 +68,6 @@ module.exports = BoxStore = Reflux.createStore({
     this.trigger({
       boxes: this.boxes
     });
-  },
-
-  generateId: function() {
-    return ("0000" + (Math.random()*Math.pow(36,4) << 0).toString(36)).slice(-4);
   }
 
 });
