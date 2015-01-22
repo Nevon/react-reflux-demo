@@ -26,10 +26,6 @@ module.exports = React.createClass({
 		this.setState(state);
 	},
 
-	notificationClickHandler: function() {
-
-	},
-
 	render: function() {
 		/* jshint ignore:start */
 		var notifications = this.state.notifications.reverse().map(function(note) {
