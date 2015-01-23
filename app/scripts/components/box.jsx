@@ -27,7 +27,7 @@ module.exports = React.createClass({
 	},
 
 	onClickHandler: function() {
-		BoxActions.createBox(this.props.index);
+		BoxActions.createBox(this.props.index+1);
 	},
 
 	onRemoveHandler: function(e) {

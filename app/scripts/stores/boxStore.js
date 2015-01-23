@@ -46,10 +46,10 @@ module.exports = Reflux.createStore({
 		});
 	},
 
-	onCreateBox: function(index) {
-		var box = uid();
+	onCreateBox: function(index, id) {
+		var box = (typeof(id) !== 'undefined') ? id : uid();
 
-		this.boxes.splice(index+1, 0, box);
+		this.boxes.splice(index, 0, box);
 
 		if (typeof(localStorage) !== 'undefined') {
 			localStorage.setItem('boxes', JSON.stringify(this.boxes));

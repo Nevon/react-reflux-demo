@@ -6,10 +6,12 @@
 	"globals": {
 		"module": true,
 		"require": true,
+		"xit": true,
 		"it": true,
 		"expect": true,
 		"jasmine": true,
 		"describe": true,
-		"jest": true
+		"jest": true,
+		"beforeEach": true
 	}
 }

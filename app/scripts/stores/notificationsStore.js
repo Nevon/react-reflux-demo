@@ -43,10 +43,13 @@ module.exports = Reflux.createStore({
 		});
 	},
 
+	getRandomFromArray: function(list) {
+		return list[Math.floor(Math.random() * list.length)];
+	},
+
 	onRemoveBox: function(_, id) {
 		var title = 'Removed box: ' + id;
-		var message = friendlyMessages[Math.floor(Math.random() * friendlyMessages.length)];
-
+		var message = this.getRandomFromArray(friendlyMessages);
 		NotificationActions.addNotification(title, message);
 	}
 

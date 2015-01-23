@@ -34,7 +34,7 @@ describe('Box', function() {
 		Box = TestUtils.renderIntoDocument(<BoxComponent id={id} index={index} />);
 		/* jshint ignore:end */
 		TestUtils.Simulate.click(Box.getDOMNode());
-		expect(BoxActions.createBox).toBeCalledWith(index);
+		expect(BoxActions.createBox).toBeCalledWith(4);
 	});
 
 	it('can be removed', function() {
