@@ -19,6 +19,11 @@ module.exports = Reflux.createStore({
 	},
 
 	onLoadBoxesSuccess: function(boxes){
+		// If there were no boxes found in storage, create one initial one
+		if (boxes.length === 0) {
+			BoxActions.createBox(0);
+		}
+
 		this.boxes = boxes;
 
 		this.trigger({

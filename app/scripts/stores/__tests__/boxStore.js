@@ -3,11 +3,12 @@
 jest.dontMock('reflux');
 jest.dontMock('../boxStore');
 
-var boxStore;
+var boxStore, BoxActions;
 
 describe('BoxStore', function() {
 	beforeEach(function() {
 		boxStore = require('../boxStore');
+		BoxActions = require('../../actions/boxActions');
 	});
 
 	it('has a count of boxes', function() {
@@ -18,6 +19,11 @@ describe('BoxStore', function() {
 	it('can create a new box', function() {
 		boxStore.onCreateBox(0);
 		expect(boxStore.boxes.length).toEqual(1);
+	});
+
+	it('creates an initial box if none are found on initial load', function() {
+		boxStore.onLoadBoxesSuccess([]);
+		expect(BoxActions.createBox).toBeCalledWith(0);
 	});
 
 	it('can create a new box at a given index', function() {
