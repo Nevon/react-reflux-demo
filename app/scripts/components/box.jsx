@@ -50,7 +50,7 @@ module.exports = React.createClass({
 
 		/* jshint ignore:start */
 		return (
-			<div onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
+			<div className='box-action-area' onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
 				<div className='header'>
 					<h2 className='title'>{this.props.id}</h2>
 					<div className='remove' onClick={this.onRemoveHandler}>
@@ -58,7 +58,7 @@ module.exports = React.createClass({
 					</div>
 				</div>
 				<div className='content'>
-					<h3 className='title'>Neighbors</h3>
+					<h3 className='list-heading'>Neighbors</h3>
 					<ul className='neighbors'>
 						{neighbors}
 					</ul>

@@ -4,6 +4,7 @@ var React = require('react');
 var RouteHandler = require('react-router').RouteHandler;
 var BoxStore = require('../stores/boxStore');
 var Header = require('../components/header.jsx');
+var colors = require('../lib/colors');
 
 var App = React.createClass({
 	getInitialState: function(){
@@ -36,16 +37,7 @@ var App = React.createClass({
 		// Logistic function to approach 0 as the number of boxes grows
 		var colorValue = Math.round(start - (range * 1 / (1 + Math.pow(Math.E, 1 - num))));
 
-		var componentToHex = function(c) {
-				var hex = c.toString(16);
-				return hex.length === 1 ? '0' + hex : hex;
-		};
-
-		var rgbToHex = function(r, g, b) {
-				return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
-		};
-
-		return rgbToHex(colorValue, colorValue, colorValue);
+		return colors.rgbToHex(colorValue, colorValue, colorValue);
 	},
 
 	render: function () {

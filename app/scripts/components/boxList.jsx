@@ -33,11 +33,34 @@ module.exports = React.createClass({
 		BoxActions.createBox(0);
 	},
 
+	getNeighbors: function(index, column, boxes) {
+		var neighbors = [],
+				isLast = index + 1 === boxes.length;
+
+		if (column === 1) {
+			// Box has possibly two neighbors
+			neighbors.push(boxes[index - 1]);
+
+			if (!isLast) {
+				// Has right neighbor
+				neighbors.push(boxes[index + 1]);
+			}
+		} else if ((column === 0 || column === 3) && !isLast) {
+			// Box has only right neighbor
+			neighbors.push(boxes[index + 1]);
+		} else if (column === 2 || column === 4) {
+			// Box has only left neighbor
+			neighbors.push(boxes[index - 1]);
+		}
+
+		return neighbors;
+	},
+
 	render: function() {
 		var bgColors = new Cursor(['', 'red', 'green', 'blue']);
 		var columns = new Cursor(['third', 'third', 'third', 'half', 'half', 'full']);
 		/* jshint ignore:start */
-		var loading = this.state.loading ? <div>Loading...</div> : '';
+		var loading = this.state.loading ? <div className="loading">Loading...</div> : '';
 		/* jshint ignore:end */
 		var boxes = this.state.boxes.map(function(box, boxIndex){
 			var neighbors = [];
@@ -56,21 +79,7 @@ module.exports = React.createClass({
 				boxClasses.push('last');
 			}
 
-			if (columns.getIndex() === 1) {
-				// Box has possibly two neighbors
-				neighbors.push(this.state.boxes[boxIndex - 1]);
-
-				if (!isLast) {
-					// Has right neighbor
-					neighbors.push(this.state.boxes[boxIndex + 1]);
-				}
-			} else if ((columns.getIndex() === 0 || columns.getIndex() === 3) && !isLast) {
-				// Box has only right neighbor
-				neighbors.push(this.state.boxes[boxIndex + 1]);
-			} else if (columns.getIndex() === 2 || columns.getIndex() === 4) {
-				// Box has only left neighbor
-				neighbors.push(this.state.boxes[boxIndex - 1]);
-			}
+			neighbors = this.getNeighbors(boxIndex, columns.getIndex(), this.state.boxes);
 
 			/* jshint ignore:start */
 			return <li key={box} className={boxClasses.join(' ')}><Box id={box} neighbors={neighbors} index={boxIndex} /></li>;

@@ -8,7 +8,7 @@ module.exports = React.createClass({
 	propTypes: {
 		title: React.PropTypes.string.isRequired,
 		message: React.PropTypes.string.isRequired,
-		uid: React.PropTypes.string.isRequired
+		uid: React.PropTypes.number.isRequired
 	},
 
 	getDefaultProps: function() {

@@ -29,7 +29,7 @@ module.exports = React.createClass({
 	render: function() {
 		/* jshint ignore:start */
 		var notifications = this.state.notifications.reverse().map(function(note) {
-			return <Notification uid={note.uid} title={note.title} message={note.message} />;
+			return <Notification key={note.uid} uid={note.uid} title={note.title} message={note.message} />;
 		});
 
 		return (
