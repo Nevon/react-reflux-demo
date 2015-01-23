@@ -5,7 +5,7 @@
   "main": "index.html",
   "repository": {
   	"type": "git",
-  	"git://github.com/Nevon/react-reflux-demo.git"
+  	"url": "git://github.com/Nevon/react-reflux-demo.git"
   },
   "scripts": {
     "start": "gulp",
