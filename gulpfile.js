@@ -96,6 +96,8 @@ gulp.task('clean', function(cb) {
 	del([dist], cb);
 });
 
+gulp.task('heroku:development', ['build']);
+
 
 // by default build project and then watch files in order to trigger livereload
 gulp.task('default', ['build', 'serve', 'watch']);
