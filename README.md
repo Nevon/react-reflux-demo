@@ -1,8 +1,10 @@
 # Boxes
 
-This is a React + Refluxjs app to... Manage... Boxes?
-
 [![Build Status](https://travis-ci.org/Nevon/react-reflux-demo.svg?branch=master)](https://travis-ci.org/Nevon/react-reflux-demo)
+
+This is a React + Refluxjs app to... Manage...
+
+[Demo here](https://enigmatic-lake-7779.herokuapp.com)
 
 ## Installation
 
