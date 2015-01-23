@@ -38,5 +38,8 @@
 			"<rootDir>/node_modules/react",
 			"<rootDir>/node_modules/reflux"
 		]
+	},
+	"engines": {
+		"node": "0.10.x"
 	}
 }
