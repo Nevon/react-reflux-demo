@@ -6,7 +6,21 @@ var BoxActions = require('../actions/boxActions');
 module.exports = React.createClass({
 	propTypes: {
 		id: React.PropTypes.string.isRequired,
-		neighbors: React.PropTypes.arrayOf(React.PropTypes.string).isRequired,
+		neighbors: function(props, propName) {
+			if (!Array.isArray(props[propName])) {
+				return new Error('Prop "neighbors" is not an array');
+			}
+
+			for (var i = 0; props[propName].length > i; i++) {
+				if (typeof(props[propName][i]) !== 'string') {
+					return new Error('Prop "neighbors" contains non-string values');
+				}
+			}
+
+			if (props[propName].length > 2) {
+				return new Error('Box can only have up to two neighbors');
+			}
+		},
 		index: React.PropTypes.number.isRequired
 	},
 
