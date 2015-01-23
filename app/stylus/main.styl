@@ -43,24 +43,25 @@ body
 	width 100%
 	padding 50px
 	margin 0 auto
-	transition border 400ms ease-out
 
 	&.container--outer
 		max-width 960px
-		border: 10px solid $bg
+		padding 60px
 		background-image url(../images/pattern.png)
 		background-position 50%
 		background-repeat no-repeat
 		background-size cover
 
 		&.hovering
+			padding 50px
 			border 10px solid black
 
 	&.container--inner
 		background #eaeaea
-		border: 15px solid $bg
+		padding 65px
 
 		&.hovering
+			padding 50px
 			border 15px solid black
 
 .boxes
@@ -70,7 +71,7 @@ body
 	padding 0
 
 .box
-	border 5px solid transparent
+	padding 5px
 	float left
 	width 100%
 	cursor pointer
@@ -80,6 +81,7 @@ body
 
 	&:hover
 		border 5px solid black
+		padding 0
 
 	&.third
 		width 33.33%
