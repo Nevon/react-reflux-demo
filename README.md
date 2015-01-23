@@ -2,6 +2,8 @@
 
 This is a React + Refluxjs app to... Manage... Boxes?
 
+[![Build Status](https://travis-ci.org/Nevon/react-reflux-demo.svg?branch=master)](https://travis-ci.org/Nevon/react-reflux-demo)
+
 ## Installation
 
 Install all dependencies. 
