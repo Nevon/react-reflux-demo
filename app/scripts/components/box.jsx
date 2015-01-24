@@ -72,7 +72,7 @@ module.exports = React.createClass({
 		return (
 			<div className='box-action-area' onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
 				<div className='header'>
-					<h2 className='title'>{this.props.id}</h2>
+					<h2 className='title'>[{this.props.id}]</h2>
 					<div className='remove' onClick={this.onRemoveHandler}>
 						<span className='icon'>X</span>
 					</div>
