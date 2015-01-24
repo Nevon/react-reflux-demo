@@ -2,13 +2,13 @@
 
 [![Build Status](https://travis-ci.org/Nevon/react-reflux-demo.svg?branch=master)](https://travis-ci.org/Nevon/react-reflux-demo)
 
-This is a React + Refluxjs app to... Manage...
+This is a React + Refluxjs app to... Manage... Boxes.
 
 [Demo here](https://enigmatic-lake-7779.herokuapp.com)
 
 ## Installation
 
-Install all dependencies. 
+Install all dependencies.
 
 ```
 $ npm install
