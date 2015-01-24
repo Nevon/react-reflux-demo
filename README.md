@@ -8,6 +8,13 @@ This is a React + Refluxjs app to... Manage... Boxes.
 
 ## Installation
 
+You need to have the following installed:
+
+```
+node 0.10.x
+```
+
+
 Install all dependencies.
 
 ```
@@ -20,7 +27,7 @@ $ npm install
 Build and starts on port 1337
 
 ```
-$ gulp
+$ npm start
 ```
 
 ## Build
