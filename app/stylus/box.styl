@@ -1,3 +1,7 @@
+color-box($color)
+	background $color
+	border-bottom 5px solid darken($color, 10%)
+
 .box
 	list-style none
 	margin 0
@@ -20,21 +24,29 @@
 		width 50%
 
 	&.red .header
-		background $red
-		border-bottom 5px solid darken($red, 10%)
+		color-box $red
+
+		.remove:hover
+			color darken($red, 40%)
 
 	&.green .header
-		background $green
-		border-bottom 5px solid darken($green, 10%)
+		color-box $green
+
+		.remove:hover
+			color darken($green, 40%)
 
 	&.blue .header
-		background $blue
-		border-bottom 5px solid darken($blue, 10%)
+		color-box $blue
+
+		.remove:hover
+			color darken($blue, 40%)
 
 	&.last
 		.header
-			background $orange
-			border-bottom 5px solid darken($orange, 10%)
+			color-box $orange
+
+			.remove:hover
+				color darken($orange, 40%)
 
 		.box-action-area
 			box-shadow 0 3px 7px 0 rgba(0,0,0,.3)
@@ -52,7 +64,7 @@
 
 	.header
 		position: relative;
-		border-bottom 5px solid darken($white, 10%)
+		color-box $white
 
 		.title
 			margin 0
