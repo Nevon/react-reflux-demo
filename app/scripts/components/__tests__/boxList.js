@@ -19,9 +19,9 @@ describe('BoxList', function() {
 	});
 
 	it('displays a loader', function() {
-		expect(TestUtils.scryRenderedDOMComponentsWithClass(BoxList, 'loading').length).toBe(0);
+		expect(TestUtils.scryRenderedDOMComponentsWithClass(BoxList, 'message--loading').length).toBe(0);
 		BoxList.onStatusChange({loading: true});
-		var loader = TestUtils.findRenderedDOMComponentWithClass(BoxList, 'loading');
+		var loader = TestUtils.findRenderedDOMComponentWithClass(BoxList, 'message--loading');
 		expect(loader.getDOMNode().textContent).toBe('Loading...');
 	});
 
@@ -62,7 +62,7 @@ describe('BoxList', function() {
 	});
 
 	it('allows you to create a box when there are none', function() {
-		var newBoxButton = TestUtils.findRenderedDOMComponentWithClass(BoxList, 'empty-message');
+		var newBoxButton = TestUtils.findRenderedDOMComponentWithClass(BoxList, 'message--empty');
 		expect(newBoxButton.getDOMNode().textContent).toBe('Click to create a box');
 		TestUtils.Simulate.click(newBoxButton.getDOMNode());
 		expect(BoxActions.createBox).toBeCalledWith(0);
