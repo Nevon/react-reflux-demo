@@ -59,9 +59,7 @@ module.exports = React.createClass({
 	render: function() {
 		var bgColors = new Cursor(['', 'red', 'green', 'blue']);
 		var columns = new Cursor(['third', 'third', 'third', 'half', 'half', 'full']);
-		/* jshint ignore:start */
-		var loading = this.state.loading ? <div className="loading">Loading...</div> : '';
-		/* jshint ignore:end */
+
 		var boxes = this.state.boxes.map(function(box, boxIndex){
 			var neighbors = [];
 			var boxClasses = ['box'];
@@ -87,15 +85,11 @@ module.exports = React.createClass({
 		}, this);
 
 		/* jshint ignore:start */
-		var message = (this.state.boxes.length === 0) ? <span className="empty-message" onClick={this.createBox}>Click to create a box</span> : null;
+		var content = (this.state.loading === true) ? <div className="message message--loading">Loading...</div> : (this.state.boxes.length === 0) ? <span className="message message--empty" onClick={this.createBox}>Click to create a box</span> : <ul className='clearfix boxes'>{boxes}</ul>;
 
 		return (
 			<div>
-				{ loading }
-				<ul className='clearfix boxes'>
-					{boxes}
-				</ul>
-				{message}
+				{ content }
 			</div>
 		);
 		/* jshint ignore:end */
