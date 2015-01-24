@@ -1,7 +1,5 @@
 @import 'normalize'
 @import 'helper'
-@import 'header'
-@import 'notification'
 
 /* variables */
 $lightgrey = #999
@@ -14,6 +12,20 @@ $green = #8bc34a
 $blue = #5677fc
 $orange = #ffc107
 $bg = #5eb388
+
+$container-padding = 50px
+$container-padding-small = 10px
+$container-padding-xsmall = 0px
+
+$outer-container-border-width = 10px
+$inner-container-border-width = 15px
+
+$media-small = "screen and (max-width: 600px)"
+$media-xsmall = "screen and (max-width: 400px)"
+
+@import 'header'
+@import 'notification'
+@import 'box'
 
 *
 	box-sizing border-box
@@ -34,6 +46,7 @@ a:hover
 	color lighten($linkColor,10%)
 
 body
+	font-family 'Open Sans', sans-serif
 	color $black
 	font-size 1em
 	line-height 1.5
@@ -41,116 +54,62 @@ body
 
 .container
 	width 100%
-	padding 50px
+	padding $container-padding
 	margin 0 auto
 
 	&.container--outer
 		max-width 960px
-		padding 60px
+		padding $container-padding + $outer-container-border-width
 		background-image url(../images/pattern.png)
 		background-position 50%
 		background-repeat no-repeat
 		background-size cover
 
 		&.hovering
-			padding 50px
-			border 10px solid black
+			padding $container-padding
+			border $outer-container-border-width solid black
 
 	&.container--inner
 		background #eaeaea
-		padding 65px
+		padding $container-padding + $inner-container-border-width
 
 		&.hovering
-			padding 50px
-			border 15px solid black
+			padding $container-padding
+			border $inner-container-border-width solid black
+
+	@media $media-small
+		padding $container-padding-small
+
+		&.container--outer
+			padding $container-padding-small + $outer-container-border-width
+
+			&.hovering
+				padding $container-padding-small
+
+		&.container--inner
+			padding $container-padding-small + $inner-container-border-width
+
+			&.hovering
+				padding: $container-padding-small
+
+	@media $media-xsmall
+		padding $container-padding-xsmall
+
+		&.container--outer
+			padding $container-padding-xsmall + $outer-container-border-width
+
+		&.hovering
+			padding $container-padding-xsmall
+
+		&.container--inner
+			padding $container-padding-xsmall + $inner-container-border-width
+
+		&.hovering
+			padding: $container-padding-xsmall
 
 .boxes
-.box
-	list-style none
-	margin 0
+	list-style: none
 	padding 0
-
-.box
-	padding 5px
-	float left
-	width 100%
-	cursor pointer
-
-	> div
-		background $white
-
-	&:hover
-		border 5px solid black
-		padding 0
-
-	&.third
-		width 33.33%
-
-	&.half
-		width 50%
-
-	&.red .header
-		background $red
-
-	&.green .header
-		background $green
-
-	&.blue .header
-		background $blue
-
-	&.last
-		.header
-			background $orange
-
-		.box-action-area
-			box-shadow 0 3px 7px 0 rgba(0,0,0,.3)
-
-	&.red
-	&.blue
-	&.green
-	&.last
-		.header
-			color $white
-
-	.header
-	.content
-		padding 10px
-
-	.header
-		position: relative;
-
-		.title
-			margin 0
-			text-transform uppercase
-			font-size 1rem
-			font-weight 100
-
-		.remove
-			position absolute
-			right 0
-			top 0
-			display block
-			height 100%
-			text-transform uppercase
-			font-size .9rem
-			transition all 300ms ease-out
-			font-family monospace
-
-			&:hover
-				color $linkColor
-				background rgba(255, 255, 255, .2)
-
-			.icon
-				position relative
-				left 50%
-				top 50%
-				transform translate3d(-50%, -50%, 0)
-				display block
-				padding 0 15px
-
-	.list-heading
-		font-size .9rem
-		margin 0
 
 .empty-message
 	text-align center
@@ -158,6 +117,6 @@ body
 	cursor pointer
 	text-transform uppercase
 	letter-spacing 2px
-	font-weight bold
+	font-weight 600
 	font-size .9rem
 	color $white

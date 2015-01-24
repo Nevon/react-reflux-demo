@@ -1,0 +1,109 @@
+.box
+	list-style none
+	margin 0
+	padding 5px
+	float left
+	width 100%
+	cursor pointer
+
+	> div
+		background $white
+
+	&:hover
+		border 5px solid black
+		padding 0
+
+	&.third
+		width 33.33%
+
+	&.half
+		width 50%
+
+	&.red .header
+		background $red
+		border-bottom 5px solid darken($red, 10%)
+
+	&.green .header
+		background $green
+		border-bottom 5px solid darken($green, 10%)
+
+	&.blue .header
+		background $blue
+		border-bottom 5px solid darken($blue, 10%)
+
+	&.last
+		.header
+			background $orange
+			border-bottom 5px solid darken($orange, 10%)
+
+		.box-action-area
+			box-shadow 0 3px 7px 0 rgba(0,0,0,.3)
+
+	&.red
+	&.blue
+	&.green
+	&.last
+		.header
+			color $white
+
+	.header
+	.content
+		padding 10px
+
+	.header
+		position: relative;
+		border-bottom 5px solid darken($white, 10%)
+
+		.title
+			margin 0
+			text-transform uppercase
+			font-size 1rem
+			font-weight 600
+
+		.remove
+			position absolute
+			right 0
+			top 0
+			display block
+			height 100%
+			text-transform uppercase
+			font-size .9rem
+			transition all 300ms ease-out
+			font-family monospace
+
+			&:hover
+				color $linkColor
+				background rgba(255, 255, 255, .2)
+
+			.icon
+				position relative
+				left 50%
+				top 50%
+				transform translate3d(-50%, -50%, 0)
+				display block
+				padding 0 15px
+
+	.content
+		font-size .8rem
+
+	.neighbors
+		list-style none
+		padding 0
+
+	.neighbor
+		text-transform uppercase
+		letter-spacing 1px
+		display inline-block
+		width 50%
+
+	.neighbor--left
+		padding-right .5em
+
+	.neighbor--right
+		padding-left .5em
+		text-align right
+
+	.empty
+		text-align center
+		display block
+		color lighten($black, 75%)

@@ -55,14 +55,20 @@ module.exports = React.createClass({
 	},
 
 	render: function() {
-		var neighbors = this.props.neighbors.map(function(neighbor) {
-			var key = this.props.id + ' - ' + neighbor;
+		var neighbors = this.props.neighbors.map(function(neighbor, index) {
+			var key = this.props.id + ' - ' + neighbor,
+					classes = React.addons.classSet({
+						'neighbor': true,
+						'neighbor--left': (index % 2 === 0),
+						'neighbor--right': (index % 2 !== 0)
+					});
 			/* jshint ignore:start */
-			return <li className='neighbor' key={key}>{neighbor}</li>
+			return <li className={classes} key={key}>{neighbor}</li>
 			/* jshint ignore:end */
 		}, this);
-
 		/* jshint ignore:start */
+		var content = (this.props.neighbors.length > 0) ? <ul className='neighbors'>{neighbors}</ul> : <span className='empty'>No neighbors</span>;
+
 		return (
 			<div className='box-action-area' onMouseEnter={this.mouseEnterHandler} onMouseLeave={this.mouseLeaveHandler} onClick={this.onClickHandler}>
 				<div className='header'>
@@ -72,10 +78,7 @@ module.exports = React.createClass({
 					</div>
 				</div>
 				<div className='content'>
-					<h3 className='list-heading'>Neighbors</h3>
-					<ul className='neighbors'>
-						{neighbors}
-					</ul>
+					{content}
 				</div>
 			</div>
 		);
