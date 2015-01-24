@@ -13,13 +13,28 @@ var BoxActions = Reflux.createActions([
 ]);
 
 BoxActions.loadBoxes.preEmit = function(){
-	var boxes = [];
+	var boxes = [],
+			storageKey = 'boxes';
 
 	if (typeof(localStorage) !== 'undefined') {
-		var storedBoxes = JSON.parse(localStorage.getItem('boxes'));
+		var storedBoxes;
+
+		try {
+			storedBoxes = JSON.parse(localStorage.getItem(storageKey));
+		} catch(e) {
+			if (e instanceof SyntaxError) {
+				// If the JSON in storage is corrupt, get rid of it
+				localStorage.removeItem(storageKey);
+			} else {
+				throw e;
+			}
+		}
 
 		if (storedBoxes) {
-			boxes = storedBoxes;
+			// Filter out non-numeric items, in case they got in there somehow
+			boxes = storedBoxes.filter(function(box) {
+				return typeof(box) === 'number';
+			});
 		}
 	}
 

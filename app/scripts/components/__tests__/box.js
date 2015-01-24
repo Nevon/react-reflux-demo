@@ -12,15 +12,15 @@ describe('Box', function() {
 	});
 
 	it('displays its ID in the header', function() {
-		var id = 'foo';
+		var id = 0;
 		/* jshint ignore:start */
 		Box = TestUtils.renderIntoDocument(<BoxComponent id={id} />);
 		/* jshint ignore:end */
-		expect(TestUtils.findRenderedDOMComponentWithClass(Box, 'title').getDOMNode().textContent).toEqual(id);
+		expect(TestUtils.findRenderedDOMComponentWithClass(Box, 'title').getDOMNode().textContent).toEqual('[' + id + ']');
 	});
 
 	it('displays a list of neighbors', function() {
-		var neighbors = ['foo', 'bar'];
+		var neighbors = [1, 2];
 		/* jshint ignore:start */
 		Box = TestUtils.renderIntoDocument(<BoxComponent neighbors={neighbors} />);
 		/* jshint ignore:end */
@@ -28,7 +28,7 @@ describe('Box', function() {
 	});
 
 	it('creates a new box when clicked on', function() {
-		var id = 'bar',
+		var id = 1,
 				index = 3;
 		/* jshint ignore:start */
 		Box = TestUtils.renderIntoDocument(<BoxComponent id={id} index={index} />);
@@ -38,7 +38,7 @@ describe('Box', function() {
 	});
 
 	it('can be removed', function() {
-		var id = 'foo',
+		var id = 1,
 				index = 0;
 		/* jshint ignore:start */
 		Box = TestUtils.renderIntoDocument(<BoxComponent id={id} index={index} />);

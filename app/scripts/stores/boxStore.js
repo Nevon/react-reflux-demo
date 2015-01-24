@@ -2,13 +2,16 @@
 
 var Reflux = require('reflux');
 var BoxActions = require('../actions/boxActions');
-var uid = require('../lib/uid');
 
 module.exports = Reflux.createStore({
 	listenables: [BoxActions],
 
 	init : function(){
 		this.boxes = [];
+	},
+
+	generateID : function() {
+		return (this.boxes.length > 0) ? Math.max.apply(null, this.boxes) + 1 : 0;
 	},
 
 
@@ -52,7 +55,7 @@ module.exports = Reflux.createStore({
 	},
 
 	onCreateBox: function(index, id) {
-		var box = (typeof(id) !== 'undefined') ? id : uid();
+		var box = (typeof(id) !== 'undefined') ? id : this.generateID();
 
 		this.boxes.splice(index, 0, box);
 

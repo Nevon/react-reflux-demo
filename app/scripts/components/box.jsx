@@ -5,15 +5,15 @@ var BoxActions = require('../actions/boxActions');
 
 module.exports = React.createClass({
 	propTypes: {
-		id: React.PropTypes.string.isRequired,
+		id: React.PropTypes.number.isRequired,
 		neighbors: function(props, propName) {
 			if (!Array.isArray(props[propName])) {
 				return new Error('Prop "neighbors" is not an array');
 			}
 
 			for (var i = 0; props[propName].length > i; i++) {
-				if (typeof(props[propName][i]) !== 'string') {
-					return new Error('Prop "neighbors" contains non-string values');
+				if (typeof(props[propName][i]) !== 'number') {
+					return new Error('Prop "neighbors" contains non-numeric values');
 				}
 			}
 
@@ -26,7 +26,7 @@ module.exports = React.createClass({
 
 	getDefaultProps: function(){
 		return {
-			id: '',
+			id: 0,
 			neighbors: [],
 			index: 0
 		};

@@ -31,28 +31,28 @@ describe('BoxList', function() {
 	});
 
 	it('contains a number of boxes', function() {
-		BoxList.onStatusChange({boxes: ['foo', 'bar']});
+		BoxList.onStatusChange({boxes: [1, 2]});
 		expect(BoxList.state.boxes.length).toEqual(2);
 		expect(TestUtils.scryRenderedComponentsWithType(BoxList, BoxComponent).length).toBe(2);
 	});
 
 	it('calculates horizontal neighbors', function() {
-		var boxes = ['1', '2', '3', '4', '5', '6', '7'];
+		var boxes = [1, 2, 3, 4, 5, 6, 7];
 
 		// Only right neighbor in column of three
-		expect(BoxList.getNeighbors(0, 0, boxes)).toEqual(['2']);
+		expect(BoxList.getNeighbors(0, 0, boxes)).toEqual([2]);
 
 		// Only left neighbor in column of three
-		expect(BoxList.getNeighbors(2, 2, boxes)).toEqual(['2']);
+		expect(BoxList.getNeighbors(2, 2, boxes)).toEqual([2]);
 
 		// Both neighbors in column of three
-		expect(BoxList.getNeighbors(1, 1, boxes)).toEqual(['1', '3']);
+		expect(BoxList.getNeighbors(1, 1, boxes)).toEqual([1, 3]);
 
 		// Only right neighbor in column of 2
-		expect(BoxList.getNeighbors(3, 3, boxes)).toEqual(['5']);
+		expect(BoxList.getNeighbors(3, 3, boxes)).toEqual([5]);
 
 		// Only left neighbor in column of 2
-		expect(BoxList.getNeighbors(4, 4, boxes)).toEqual(['4']);
+		expect(BoxList.getNeighbors(4, 4, boxes)).toEqual([4]);
 
 		// No neighbors in single column
 		expect(BoxList.getNeighbors(5, 5, boxes)).toEqual([]);
